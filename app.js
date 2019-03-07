@@ -1,11 +1,27 @@
 const express = require('express'),
       app = express(),
-      config = require('./config/index'),
+      bodyParser = require('body-parser'),
+      session = require('express-session'),
+      mongoose = require('mongoose'),
       { rootRoute, exploreRoute, aboutRoute, loginRoute, registerRoute, profileRoute, patientRoute, logoutRoute } = require('./routes');
 
 
 app.use(express.static('public'));
-config(app);
+require('dotenv').config();
+app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(session({
+  name: 'pid',
+  resave: false,
+  saveUninitialized: false,
+  secret: process.env.SESSION_SECRET,
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 2
+  }
+}));
+mongoose.connect(process.env.MONGO_URL, {
+  useNewUrlParser: true
+});
 rootRoute(app);
 exploreRoute(app);
 aboutRoute(app);
