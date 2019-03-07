@@ -2,10 +2,9 @@ const bodyParser = require('body-parser'),
       session = require('express-session'),
       mongoose = require('mongoose');
 
-module.exports = (express, app) => {
+module.exports = app => {
   require('dotenv').config();
   app.set('view engine', 'ejs');
-  app.use(express.static('public'));
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(session({
     name: 'pid',

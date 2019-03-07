@@ -3,7 +3,9 @@ const express = require('express'),
       config = require('./config'),
       { rootRoute, exploreRoute, aboutRoute, loginRoute, registerRoute, profileRoute, patientRoute, logoutRoute } = require('./routes');
 
-config(express, app);
+
+app.use(express.static('public'));
+config(app);
 rootRoute(app);
 exploreRoute(app);
 aboutRoute(app);
