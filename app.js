@@ -1,6 +1,6 @@
 const express = require('express'),
       app = express(),
-      config = require('./config'),
+      config = require('./config/index'),
       { rootRoute, exploreRoute, aboutRoute, loginRoute, registerRoute, profileRoute, patientRoute, logoutRoute } = require('./routes');
 
 
