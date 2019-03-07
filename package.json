@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A Platform to Get/Share Blood",
   "main": "app.js",
+  "engines": {
+    "node": "8.11.3"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app.js",
