@@ -13,4 +13,4 @@ profileRoute(app);
 patientRoute(app);
 logoutRoute(app);
 
-app.listen(process.env.PORT || 5000, () => console.log('Server is running...'));
+app.listen(process.env.PORT, () => console.log('Server is running...'));
