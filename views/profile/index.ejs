@@ -1,0 +1,72 @@
+<% include ../partials/header  %>
+<div class="page be-donors-page">
+    <div class="page-navbar">
+      <div class="container">
+        <% include ../partials/nav %>
+      </div>
+    </div>
+    <div class="head">
+      <div class="container">
+        <h1>Profile</h1>
+        <p>You Blood Donation Profile</p>
+      </div>
+    </div>
+    <section class="donors-area">
+      <div class="container">
+        <div class="be-donor">
+        <% if(donor) { %>
+          <div class="profile">
+            <p><span>Name:</span> <%= donor.profile.firstName %> <%= donor.profile.middleName ? donor.profile.middleName : '' %> <%= donor.profile.lastName %></p>
+            <p><span>Age:</span> <%= donor.profile.age %></p>
+            <p><span>Location:</span> <%= donor.profile.location.place %> <%= donor.profile.location.state ? donor.profile.location.state : '' %> <%= donor.profile.location.country %></p>
+            <p><span>Blood Group:</span> <%= donor.profile.bloodGroup %></p>
+            <p><span>Phone:</span> <%= donor.profile.phone %></p>
+            <p><%= donor.smoke ? `Smokes` : `Don't Smoke` %></p>
+            <p><%= donor.lastDonated ? `Last Donated ${donor.lastDonated} days ago!`: `Not Donated yet` %></p>
+            <div class="action-btn">
+              <a href="/profile/edit/<%= donor.id %>">Edit</a>
+            </div>
+          </div>
+          <% if(patient.length) { %>
+          <div class="suggested-profile">
+            <h3>You may help these patients</h3>
+            <% patient.forEach(onePatient => { %>
+              <% if(onePatient.profile.bloodGroup === donor.profile.bloodGroup) { %>
+                <div class="single-patient">
+                  <div class="blood-group">
+                    <p><%= onePatient.profile.bloodGroup %></p>
+                  </div>
+                  <h4>
+                    <p><%= onePatient.profile.firstName %> <%= onePatient.profile.middleName %> <%= onePatient.profile.lastName %></p>
+                  </h4>
+                  <p><%= onePatient.problem %></p>
+                  <ul>
+                    <li><%= onePatient.type %></li>
+                    <li><span>Age:</span> <%= onePatient.profile.age %></li>
+                    <li><span>Unit:</span> <%= onePatient.units %></li>
+                    <li><span>Required Within:</span> <%= onePatient.requiredDate.getDay() %>, 0<%= onePatient.requiredDate.getMonth() + 1 %>, <%= onePatient.requiredDate.getFullYear() %></li>
+                    <li><span>Contact:</span> <%= onePatient.contactInfo %></li>
+                    <li><%= onePatient.solved %></li>
+                  </ul>
+                  <ul>
+                    <li><%= onePatient.profile.location.place %></li>
+                    <li><%= onePatient.profile.location.state %></li>
+                    <li><%= onePatient.profile.location.country %></li>
+                  </ul>
+                </div>
+              <% } %>
+            <% }) %>
+          </div>
+          <% } %>
+        <% } else { %>
+          <div class="profile">
+            <h1>Be a Donor</h1>
+            <p>You are not a donor yet, you could be one</p>
+            <a class="btn btn-new" href="/profile/new">Be a Donor</a>
+          </div>
+        <% } %>
+      </div>
+      </div>
+    </section>
+  </div>
+<% include ../partials/footer %>

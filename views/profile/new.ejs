@@ -1,0 +1,70 @@
+<% include ../partials/header  %>
+<div class="page be-donors-page">
+    <div class="page-navbar">
+      <div class="container">
+        <% include ../partials/nav %>
+      </div>
+    </div>
+    <div class="head">
+      <div class="container">
+        <h1>New Profile</h1>
+        <p>Be a Blood Donor</p>
+      </div>
+    </div>
+    <section class="donors-area">
+      <div class="container">
+        <div class="be-donor">
+          <form class="be-donor-form" action="/profile/new/<%= user %>" method="POST">
+          <div class="profile"> <h4>Profile</h4>
+            <div class="input-group">
+              <input type="text" name="firstName" placeholder="First Name" required/>
+              <input type="text" name="middleName" placeholder="Middle Name"/>
+              <input type="text" name="lastName" placeholder="Last Name" required/>
+              <input type="number" name="age" min="17" placeholder="Age (>17)" required/>
+            </div>
+          </div>
+          <div class="location">
+            <h4>Location</h4>
+            <div class="input-group">
+              <input type="text" name="place" placeholder="Place" required/>
+              <input type="text" name="state" placeholder="State"/>
+              <input type="text" name="country" placeholder="Country" required/>
+            </div>
+          </div>
+          <div class="information"> <h4>Information</h4>
+            <div class="input-group">
+              <select type="text" name="bloodGroup" required>
+                <option value="A+">A+</option>
+                <option value="A+">A-</option>
+                <option value="A+">B+</option>
+                <option value="A+">B-</option>
+                <option value="A+">AB+</option>
+                <option value="A+">AB-</option>
+                <option value="A+">O+</option>
+                <option value="A+">O-</option>
+              </select>
+              <input type="phone" name="phone" placeholder="Phone Number" required/>
+              <div class="radio-input">
+                <h5>Have you donated blood yet?</h5>
+                <div class="input-group">
+                  <input type="radio" name="donatedOnce" value="yes" required/> Yes
+                  <input type="radio" name="donatedOnce" value="no" required/> No
+                </div>
+              </div>
+              <input type="number" name="lastDonated" placeholder="Last Donated(Days)"/>
+              <div class="radio-input">
+                <h5>Do you smoke?</h5>
+                <div class="input-group">
+                  <input type="radio" name="smoke" value="yes" required/> Yes
+                  <input type="radio" name="smoke" value="no" required/> No
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-submit">Add Donor</button>
+        </form>
+        </div>
+      </div>
+    </section>
+  </div>
+<% include ../partials/footer %>

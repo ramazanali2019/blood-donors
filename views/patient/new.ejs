@@ -1,0 +1,102 @@
+<% include ../partials/header  %>
+<div class="page be-donors-page">
+    <div class="page-navbar">
+      <div class="container">
+        <% include ../partials/nav %>
+      </div>
+    </div>
+    <div class="head">
+      <div class="container">
+        <h1>New Patient</h1>
+        <p>Reach out for Help</p>
+      </div>
+    </div>
+    <section class="patient-area">
+      <div class="container">
+        <div class="be-donor">
+          <form class="be-donor-form" action="/patient/new/<%= user %>" method="POST">
+          <div class="profile"> <h4>Patient</h4>
+            <div class="input-group">
+              <input type="text" name="firstName" value="<%= donor && donor.profile.firstName %>" placeholder="First Name" required/>
+              <input type="text" name="middleName" value="<%= donor && donor.profile.middleName %>" placeholder="Middle Name"/>
+              <input type="text" name="lastName" value="<%= donor && donor.profile.lastName %>" placeholder="Last Name" required/>
+              <input type="number" name="age" min="17" value="<%= donor && donor.profile.age %>" placeholder="Age (>17)" required/>
+            </div>
+          </div>
+          <div class="location">
+            <h4>Location</h4>
+            <div class="input-group">
+              <input type="text" name="place" value="<%= donor && donor.profile.location.place %>" placeholder="Place" required/>
+              <input type="text" name="state" value="<%= donor && donor.profile.location.state %>" placeholder="State"/>
+              <input type="text" name="country" value="<%= donor && donor.profile.location.country %>" placeholder="Country" required/>
+            </div>
+          </div>
+          <div class="information"> <h4>Information</h4>
+            <div class="input-group">
+              <select type="text" name="bloodGroup" required>
+                <option
+                <% if(donor && donor.profile.bloodGroup === 'A+') {%>
+                  selected
+                <% } %>
+                 value="A+">A+</option>
+                <option
+                <% if(donor && donor.profile.bloodGroup === 'A-') {%>
+                  selected
+                <% } %>
+                 value="A-">A-</option>
+                <option
+                <% if(donor && donor.profile.bloodGroup === 'B+') {%>
+                  selected
+                <% } %>
+                 value="B+">B+</option>
+                <option
+                <% if(donor && donor.profile.bloodGroup === 'B-') {%>
+                  selected
+                <% } %>
+                 value="B-">B-</option>
+                <option
+                <% if(donor && donor.profile.bloodGroup === 'AB+') {%>
+                  selected
+                <% } %>
+                 value="AB+">AB+</option>
+                <option
+                <% if(donor && donor.profile.bloodGroup === 'AB-') {%>
+                  selected
+                <% } %>
+                 value="AB-">AB-</option>
+                <option
+                <% if(donor && donor.profile.bloodGroup === 'O+') {%>
+                  selected
+                <% } %>
+                 value="O+">O+</option>
+                <option
+                <% if(donor && donor.profile.bloodGroup === 'O-') {%>
+                  selected
+                <% } %>
+                 value="O-">O-</option>
+              </select>
+              <input type="phone" name="phone" value="<%= donor && donor.profile.phone %>" placeholder="Phone Number" required/>
+            </div>
+          </div>
+          <div class="details"> <h4>Details</h4>
+            <div class="input-group">
+              <input type="text" name="problem" placeholder="Problem" required/>
+              <input type="number" min="1" max="20" name="units" placeholder="Units"/>
+              <div class="radio-input">
+                <h5>Type</h5>
+                <div class="input-group">
+                  <input type="radio" name="type" value="regular" required/> Regular
+                  <input type="radio" name="type" value="emergency" required/> Emergency
+                </div>
+              </div>
+              <input type="date" name="requiredDate" placeholder="Date" required/>
+              <input type="text" name="contactInfo" value="<%= donor && donor.profile.phone %>" placeholder="Contact Info" required/>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-submit">Add Donor</button>
+        </form>
+        </div>
+      </div>
+    </section>
+  </div>
+<% include ../partials/footer %>

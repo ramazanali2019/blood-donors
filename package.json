@@ -1,0 +1,27 @@
+{
+  "name": "blood-donors",
+  "version": "1.0.0",
+  "description": "A Platform to Get/Share Blood",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "author": "Zonayed Ahmed",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bcrypt": "^3.0.4",
+    "body-parser": "^1.18.3",
+    "connect-flash": "^0.1.1",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "faker": "^4.1.0",
+    "mongoose": "^5.4.11"
+  },
+  "devDependencies": {
+    "dotenv": "^6.2.0"
+  }
+}

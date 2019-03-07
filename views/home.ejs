@@ -1,0 +1,109 @@
+<% include partials/header  %>
+<header class="header">
+  <div class="container">
+    <% include partials/nav %>
+  <section class="intro">
+    <div class="intro-text">
+      <h1>Donate Blood, Save Life!</h1>
+      <p>Hello World Dummy world of text assocuation</p>
+    </div>
+    <div class="search">
+      <form class="search-blood">
+        <p class="location-title">Find A Donor</p>
+        <div class="search-field">
+          <input class="input" name="location" placeholder="Location" />
+          <select>
+            <option value="A+">A+</option>
+          </select>
+        </div>
+        <button class="btn submit">Search</button>
+      </form>
+    </div>
+  </section>
+  </div>
+</header>
+<section class="info">
+  <div class="container">
+    <div class="info-stats">
+      <div class="card">
+        <h4><%= result[0] %></h4>
+        <p>Blood Donor</p>
+      </div>
+      <div class="card">
+      <h4><%= result[1] %></h4>
+      <p>Life Saved</p>
+      </div>
+      <div class="card">
+        <h4><%= result[2] %></h4>
+        <p>Donated Here</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="process">
+  <div class="container">
+    <div class="title">
+      <h1>Be a Donor</h1>
+    </div>
+    <div class="process-details">
+      <div class="process-flow">
+        <h3>Step 1</h3>
+        <p>You are atleast 18 Years Old</p>
+      </div>
+      <div class="process-flow">
+        <h3>Step 2</h3>
+        <p>Register Yourself</p>
+      </div>
+      <div class="process-flow">
+        <h3>Step 3</h3>
+        <p>Create a Donor Profile</p>
+      </div>
+      <div class="process-flow">
+        <h3>Step 4</h3>
+        <p>Fill up the Donor Form Honestly</p>
+      </div>
+      <div class="process-flow">
+        <h3>Step 5</h3>
+        <p>Update your Last Donated Date Regularly</p>
+      </div>
+      <div class="process-flow">
+        <h3>Step 6</h3>
+        <p>Donate Once You Find Any Match</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="process">
+  <div class="container">
+    <div class="title">
+      <h1>Get Help</h1>
+    </div>
+    <div class="process-details">
+      <div class="process-flow">
+        <h3>Step 1</h3>
+        <p>You can Seek Help for Yourself as well as for Others</p>
+      </div>
+      <div class="process-flow">
+        <h3>Step 2</h3>
+        <p>Register Yourself</p>
+      </div>
+      <div class="process-flow">
+        <h3>Step 3</h3>
+        <p>Create a Patient Profile</p>
+      </div>
+      <div class="process-flow">
+        <h3>Step 4</h3>
+        <p>Fill up the Patient Form</p>
+      </div>
+      <div class="process-flow">
+        <h3>Step 5</h3>
+        <p>Submit It</p>
+      </div>
+      <div class="process-flow">
+        <h3>Step 6</h3>
+        <p>Visible to Others for Donation</p>
+      </div>
+    </div>
+  </div>
+</section>
+<% include partials/footer %>

@@ -1,0 +1,36 @@
+<% include ../partials/header  %>
+<div class="page donors-page">
+    <div class="page-navbar">
+      <div class="container">
+        <% include ../partials/nav %>
+      </div>
+    </div>
+    <div class="head">
+      <div class="container">
+        <h1>Donors</h1>
+        <p>All the donors has been listed here</p>
+      </div>
+    </div>
+    <section class="donors-area">
+      <div class="container">
+        <ul class="nav-explore">
+          <li><a class="nav-btn nav-active" href="/explore/donor">Donor</a></li>
+          <li><a class="nav-btn" href="/explore/patient">Patient</a></li>
+        </ul>
+        <div class="donors">
+          <% {donors.forEach(donor => { %>
+            <a href="/donor/<%= donor._id %>" class="card">
+        <div class="group">
+          <%= donor.profile.bloodGroup %>
+        </div>
+        <div class="details">
+          <h3><%= donor.profile.firstName %> <%= donor.profile.lastName %></h3>
+          <p>From <%= donor.profile.location.place %>, <%= donor.profile.location.country %></p>
+        </div>
+      </a>
+          <% })} %>
+      </div>
+      </div>
+    </section>
+  </div>
+<% include ../partials/footer %>

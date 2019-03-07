@@ -1,0 +1,27 @@
+<% include ../partials/header  %>
+<div class="page login-page">
+    <div class="page-navbar">
+      <div class="container">
+        <% include ../partials/nav %>
+      </div>
+    </div>
+    <section class="login-area">
+      <div class="container">
+        <div class="area-login">
+        <form class="login-form" action="/login" method="POST">
+          <div class="login">
+            <p>For Alert</p>
+            <h4>Login</h4>
+            <div class="input-group">
+              <input type="text" name="username" placeholder="Username" required />
+              <input type="password" name="password" placeholder="Password" required />
+            </div>
+          </div>
+          <button type="submit" class="btn btn-submit">Login</button>
+          <a href="/register" class="btn btn-register">Register</a>
+        </form>
+      </div>
+      </div>
+    </section>
+  </div>
+<% include ../partials/footer %>

@@ -1,0 +1,54 @@
+<% include ../partials/header  %>
+<div class="page patient-page">
+    <div class="page-navbar">
+      <div class="container">
+        <% include ../partials/nav %>
+      </div>
+    </div>
+    <div class="head">
+      <div class="container">
+        <h1>Patient</h1>
+        <p>Blood Bank</p>
+      </div>
+    </div>
+    <section class="donors-area">
+      <div class="container">
+        <div class="be-donor">
+          <div class="add-action">
+            <a class="btn btn-patient" href="/patient/new">Add a New Patient</a>
+          </div>
+          <% if(patient.length) { %>
+            <% patient.forEach(onePatient => { %>
+              <div class="single-patient">
+                <div class="blood-group">
+                  <p><%= onePatient.profile.bloodGroup %></p>
+                </div>
+                <h4>
+                  <p><%= onePatient.profile.firstName %> <%= onePatient.profile.middleName %> <%= onePatient.profile.lastName %></p>
+                </h4>
+                <p><%= onePatient.problem %></p>
+                <ul>
+                  <li><%= onePatient.type %></li>
+                  <li><span>Age:</span> <%= onePatient.profile.age %></li>
+                  <li><span>Unit:</span> <%= onePatient.units %></li>
+                  <li><span>Required Within:</span> <%= onePatient.requiredDate.getDay() %>, 0<%= onePatient.requiredDate.getMonth() + 1 %>, <%= onePatient.requiredDate.getFullYear() %></li>
+                  <li><span>Contact:</span> <%= onePatient.contactInfo %></li>
+                  <li><%= onePatient.solved %></li>
+                </ul>
+                <ul>
+                  <li><%= onePatient.profile.location.place %></li>
+                  <li><%= onePatient.profile.location.state %></li>
+                  <li><%= onePatient.profile.location.country %></li>
+                </ul>
+                <div class="action-btn">
+                  <a href="/patient/edit/<%= onePatient.id %>">Edit</a>
+                  <a href="/patient/remove/<%= onePatient.id %>">Remove</a>
+                </div>
+              </div>
+            <% }) %>
+          <% } %>
+        </div>
+      </div>
+    </section>
+  </div>
+<% include ../partials/footer %>

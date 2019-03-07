@@ -1,0 +1,28 @@
+<% include ../partials/header  %>
+<div class="page register-page">
+    <div class="page-navbar">
+      <div class="container">
+        <% include ../partials/nav %>
+      </div>
+    </div>
+    <section class="register-area">
+      <div class="container">
+        <div class="area-register">
+        <form class="register-form" action="/register" method="POST">
+          <div class="login">
+            <p>For Alert</p>
+            <h4>Register</h4>
+            <div class="input-group">
+              <input type="text" name="username" placeholder="Username" required />
+              <input type="text" name="email" placeholder="Email" required />
+              <input type="password" name="password" placeholder="Password" required />
+            </div>
+          </div>
+          <button type="submit" class="btn btn-submit">Register</button>
+          <a href="/login" class="btn btn-login">Login</a>
+        </form>
+      </div>
+      </div>
+    </section>
+  </div>
+<% include ../partials/footer %>

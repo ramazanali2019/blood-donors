@@ -1,0 +1,112 @@
+<% include ../partials/header  %>
+<div class="page be-donors-page">
+    <div class="page-navbar">
+      <div class="container">
+        <% include ../partials/nav %>
+      </div>
+    </div>
+    <div class="head">
+      <div class="container">
+        <h1>Edit Profile</h1>
+        <p>Be a Blood Donor</p>
+      </div>
+    </div>
+    <section class="donors-area">
+      <div class="container">
+        <div class="be-donor">
+          <form class="be-donor-form" action="/profile/edit/<%= user %>" method="POST">
+          <div class="profile"> <h4>Profile</h4>
+            <div class="input-group">
+              <input type="text" name="firstName" value="<%= profile.profile.firstName %>" placeholder="First Name" required/>
+              <input type="text" name="middleName" value="<%= profile.profile.middleName %>" placeholder="Middle Name"/>
+              <input type="text" name="lastName" value="<%= profile.profile.lastName %>" placeholder="Last Name" required/>
+              <input type="number" name="age" min="17" value="<%= profile.profile.age %>" placeholder="Age (>17)" required/>
+            </div>
+          </div>
+          <div class="location">
+            <h4>Location</h4>
+            <div class="input-group">
+              <input type="text" name="place" value="<%= profile.profile.location.place %>" placeholder="Place" required/>
+              <input type="text" name="state" value="<%= profile.profile.location.state %>" placeholder="State"/>
+              <input type="text" name="country" value="<%= profile.profile.location.country %>" placeholder="Country" required/>
+            </div>
+          </div>
+          <div class="information"> <h4>Information</h4>
+            <div class="input-group">
+              <select type="text" name="bloodGroup" required>
+                <option
+                <% if(profile.profile.bloodGroup === 'A+') {%>
+                  selected
+                <% } %>
+                 value="A+">A+</option>
+                <option
+                <% if(profile.profile.bloodGroup === 'A-') {%>
+                  selected
+                <% } %>
+                 value="A-">A-</option>
+                <option
+                <% if(profile.profile.bloodGroup === 'B+') {%>
+                  selected
+                <% } %>
+                 value="B+">B+</option>
+                <option
+                <% if(profile.profile.bloodGroup === 'B-') {%>
+                  selected
+                <% } %>
+                 value="B-">B-</option>
+                <option
+                <% if(profile.profile.bloodGroup === 'AB+') {%>
+                  selected
+                <% } %>
+                 value="AB+">AB+</option>
+                <option
+                <% if(profile.profile.bloodGroup === 'AB-') {%>
+                  selected
+                <% } %>
+                 value="AB-">AB-</option>
+                <option
+                <% if(profile.profile.bloodGroup === 'O+') {%>
+                  selected
+                <% } %>
+                 value="O+">O+</option>
+                <option
+                <% if(profile.profile.bloodGroup === 'O-') {%>
+                  selected
+                <% } %>
+                 value="O-">O-</option>
+              </select>
+              <input type="phone" name="phone" value="<%= profile.profile.phone %>" placeholder="Phone Number" required/>
+              <div class="radio-input">
+                <h5>Have you donated blood yet?</h5>
+                <div class="input-group">
+                  <% if(profile.donatedOnce) { %>
+                    <input type="radio" name="donatedOnce" checked value="1" required/> Yes
+                    <input type="radio" name="donatedOnce" value="0" required/> No
+                  <% } else { %>
+                    <input type="radio" name="donatedOnce" value="1" required/> Yes
+                    <input type="radio" name="donatedOnce" checked value="0" required/> No
+                  <% } %>
+                </div>
+              </div>
+              <input type="number" name="lastDonated" value="<%= profile.lastDonated %>" placeholder="Last Donated(Days)"/>
+              <div class="radio-input">
+                <h5>Do you smoke?</h5>
+                <div class="input-group">
+                  <% if(profile.smoke) { %>
+                    <input type="radio" name="smoke" checked value="1" required/> Yes
+                    <input type="radio" name="smoke" value="0" required/> No
+                  <% } else { %>
+                    <input type="radio" name="smoke" value="1" required/> Yes
+                    <input type="radio" name="smoke" checked value="0" required/> No
+                  <% } %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-submit">Update Donor</button>
+        </form>
+        </div>
+      </div>
+    </section>
+  </div>
+<% include ../partials/footer %>

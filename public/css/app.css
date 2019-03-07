@@ -1,0 +1,440 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: #da291c;
+  color: #fff;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 40px 0;
+  justify-content: space-between;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.navbar img {
+  width: 45px;
+}
+
+.navbar a {
+  color: #fff;
+  font-size: 26px;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-left: 15px;
+}
+
+nav .menubar {
+  display: flex;
+}
+
+nav .menubar li {
+  text-transform: uppercase;
+  margin-left: 15px;
+  font-weight: 700;
+}
+
+nav .menubar li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.intro {
+  text-align: center;
+  padding: 120px 0;
+}
+
+.intro-text {
+  margin-top: -60px;
+}
+
+.intro-text h1 {
+  font-size: 42px;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.location-title {
+  color: #333;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.info-stats {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.info-stats .card {
+  flex: 1;
+  background: #fff;
+  box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  margin: 0 5px;
+  border-radius: 4px;
+}
+
+section {
+  padding: 100px 0;
+}
+
+.info {
+  margin-top: -150px;
+}
+
+.search-blood {
+  width: 620px;
+  margin: 0 auto;
+  margin-top: 25px;
+  padding: 25px;
+  background: #fff;
+  border: solid 1px #eee;
+  border-radius: 4px;
+}
+
+.search-field {
+  display: flex;
+}
+
+.search-field input {
+  flex: 5;
+  margin: 0;
+}
+
+.search-field select {
+  flex: 1;
+}
+
+.search-field>* {
+  padding: 15px;
+  background: #eee;
+  border: solid 1px #e7e7e7;
+}
+
+.btn {
+  background: #da291c;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  margin-right: 8px;
+  border: none;
+  font-size: 18px;
+  margin-top: 15px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.info-stats .card h4 {
+  font-size: 42px;
+  color: #333;
+  margin-right: 15px;
+  font-weight: 900;
+}
+
+.info-stats .card {
+  display: flex;
+  align-items: center;
+}
+
+.info-stats .card p {
+  font-size: 18px;
+  text-transform: uppercase;
+  border-left: solid 2px #333;
+  padding-left: 15px;
+}
+
+.process-details {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.process-details .process-flow {
+  flex: 1 1 calc(50% - 30px);
+  margin: 15px;
+  padding: 25px;
+  border-radius: 4px;
+  box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.1);
+}
+
+.head {
+  margin: 60px 0;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.head h1 {
+  color: #da291c;
+  font-size: 36px;
+}
+
+.page-navbar {
+  background: #da291c;
+}
+
+.page-navbar nav {
+  padding: 25px 0;
+}
+
+.donors {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.donors>* {
+  width: calc(50% - 30px);
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  margin: 15px;
+  padding: 40px;
+  text-decoration: none;
+  box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.1);
+}
+
+.card .group {
+  background: #da291c;
+  padding: 15px;
+  margin-right: 15px;
+  font-size: 18px;
+  font-weight: 900;
+  color: #fff;
+  text-align: center;
+  border-radius: 100%;
+}
+
+.card .details h3 {
+  color: #333;
+  font-size: 26px;
+}
+
+.card .details p {
+  color: #333;
+}
+
+.area-login,
+.area-register,
+.be-donor {
+  max-width: 640px;
+  margin: 15px auto;
+  padding: 40px;
+  box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.1);
+}
+
+.login-form .btn-register,
+.register-form .btn-login {
+  background: none;
+  color: #333;
+  text-decoration: underline;
+}
+
+form h4 {
+  font-size: 26px;
+  margin-bottom: 15px;
+}
+
+form input {
+  display: block;
+  margin: 5px 0;
+  padding: 10px 15px;
+  background: #eee;
+  border: solid 1px #e7e7e7;
+}
+
+.be-donor .input-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.be-donor>.be-donor-form>*>.input-group>* {
+  flex: 1 1 calc(100% / 2 - 20px);
+  margin-right: 10px;
+}
+
+.be-donor .radio-input input {
+  padding: 0 5px;
+}
+
+.be-donor form>div {
+  margin-bottom: 15px;
+}
+
+.be-donor select {
+  background: #eee;
+  border: none;
+  padding: 10px;
+  margin: 5px 0;
+}
+
+.footer {
+  padding: 80px 0;
+  background-color: #da291c;
+  color: #fff;
+}
+
+.footer-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer-list>div {
+  flex: 1;
+}
+
+.footer h4 {
+  font-size: 26px;
+}
+
+.footer ul li {margin: 10px 0;}
+
+.footer ul li a {
+  border-bottom: 1px dashed #fff;
+  text-decoration: none;
+  color: #fff;
+}
+
+.single-patient {
+  position: relative;
+  padding-left: 80px;
+  margin: 25px 0;
+}
+
+.single-patient .action-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0;
+}
+
+.single-patient:hover .action-btn {
+  opacity: 1;
+}
+
+.single-patient .blood-group {
+  position: absolute;
+  left: 0;
+  font-weight: 900;
+  color: #da291c;
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+.single-patient h4 {
+  font-size: 26px;
+}
+
+.single-patient ul li {display: inline;text-transform: uppercase;font-size: 14px;color: rgba(0, 0, 0, 0.8);}
+
+.single-patient ul li span {
+  font-weight: 900;
+}
+
+.nav-explore {
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 25px;
+}
+
+.nav-explore li a {
+  background: #eee;
+  text-decoration: none;
+  color: #333;
+  font-weight: 900;
+  padding: 10px 15px;
+  text-transform: uppercase;
+}
+
+.nav-explore li {
+  display: inline;
+  margin: 0 5px;
+}
+
+.nav-explore li a.nav-active {
+  background: #da291c;
+  color: #fff;
+}
+
+.add-action {
+  text-align: center;
+}
+
+.profile {
+  position: relative;
+}
+
+.profile .action-btn {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: 0;
+}
+
+.profile:hover .action-btn {
+  opacity: 1;
+}
+
+.profile p {
+  font-size: 22px;
+  line-height: 2;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+}
+
+.profile p span {
+  font-weight: 900;
+}
+
+.suggested-profile h3 {
+  font-size: 22px;
+  text-align: center;
+  margin: 25px 0;
+  padding: 10px 0;
+  text-transform: uppercase;
+  color: #fff;
+  background: #da291c;
+}
