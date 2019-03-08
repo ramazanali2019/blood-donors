@@ -1,4 +1,5 @@
 const rootRoute = require('./rootRoute'),
+      searchRoute = require('./searchRoute'),
       exploreRoute = require('./exploreRoute'),
       aboutRoute = require('./aboutRoute'),
       loginRoute = require('./loginRoute'),
@@ -10,6 +11,7 @@ const rootRoute = require('./rootRoute'),
 module.exports = {
   rootRoute,
   exploreRoute,
+  searchRoute,
   aboutRoute,
   loginRoute,
   registerRoute,

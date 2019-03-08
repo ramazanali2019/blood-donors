@@ -8,12 +8,19 @@
       <p>Hello World Dummy world of text assocuation</p>
     </div>
     <div class="search">
-      <form class="search-blood">
+      <form class="search-blood" action="/search" method="POST">
         <p class="location-title">Find A Donor</p>
         <div class="search-field">
           <input class="input" name="location" placeholder="Location" />
-          <select>
-            <option value="A+">A+</option>
+          <select type="text" name="bloodGroup" required>
+            <option value="A%2B">A+</option>
+            <option value="A-">A-</option>
+            <option value="B%2B">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB%2B">AB+</option>
+            <option value="AB-">AB-</option>
+            <option value="O%2B">O+</option>
+            <option value="O-">O-</option>
           </select>
         </div>
         <button class="btn submit">Search</button>

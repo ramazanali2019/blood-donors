@@ -3,7 +3,7 @@ const express = require('express'),
       bodyParser = require('body-parser'),
       session = require('express-session'),
       mongoose = require('mongoose'),
-      { rootRoute, exploreRoute, aboutRoute, loginRoute, registerRoute, profileRoute, patientRoute, logoutRoute } = require('./routes');
+      { rootRoute, exploreRoute, searchRoute, aboutRoute, loginRoute, registerRoute, profileRoute, patientRoute, logoutRoute } = require('./routes');
 
 
 app.use(express.static('public'));
@@ -24,6 +24,7 @@ mongoose.connect(process.env.MONGO_URL, {
 });
 rootRoute(app);
 exploreRoute(app);
+searchRoute(app);
 aboutRoute(app);
 loginRoute(app);
 registerRoute(app);

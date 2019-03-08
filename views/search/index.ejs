@@ -1,0 +1,39 @@
+<% include ../partials/header  %>
+<div class="page donors-page">
+    <div class="page-navbar">
+      <div class="container">
+        <% include ../partials/nav %>
+      </div>
+    </div>
+    <div class="head">
+      <div class="container">
+        <h1>Search</h1>
+        <p>Showing result for Blood Group <%= queryParam.bloodGroup %> around <%= queryParam.location %></p>
+      </div>
+    </div>
+    <section class="donors-area">
+      <div class="container">
+        <div class="">
+          <% if(donors && !donors.length) { %>
+            Nothing Found
+          <% } %>
+          <% donors && donors.length && donors.map(donor => { %>
+<div class="donors">
+<% {donors.forEach(donor => { %>
+<a href="/donor/<%= donor._id %>" class="card">
+<div class="group">
+<%= donor.profile.bloodGroup %>
+</div>
+<div class="details">
+<h3><%= donor.profile.firstName %> <%= donor.profile.lastName %></h3>
+<p>From <%= donor.profile.location.place %>, <%= donor.profile.location.country %></p>
+</div>
+</a>
+<% })} %>
+</div>
+          <% }) %>
+        </div>
+      </div>
+    </section>
+  </div>
+<% include ../partials/footer %>
