@@ -13,12 +13,11 @@
     </div>
     <section class="donors-area">
       <div class="container">
-        <div class="">
+        <div class="donors">
           <% if(donors && !donors.length) { %>
             Nothing Found
           <% } %>
           <% donors && donors.length && donors.map(donor => { %>
-<div class="donors">
 <% {donors.forEach(donor => { %>
 <a href="/donor/<%= donor._id %>" class="card">
 <div class="group">
@@ -30,7 +29,6 @@
 </div>
 </a>
 <% })} %>
-</div>
           <% }) %>
         </div>
       </div>
