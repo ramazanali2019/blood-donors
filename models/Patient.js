@@ -24,6 +24,10 @@ const PatientSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  request: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Donor'
+  }],
   solved: {
     type: Boolean,
     default: false

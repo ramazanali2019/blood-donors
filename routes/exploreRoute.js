@@ -8,7 +8,7 @@ module.exports = app => {
   app.get('/explore/patient', async(req, res) => {
     const { userId } = req.session;
     try {
-      const foundPatient = await Patient.find({}).exec();
+      const foundPatient = await Patient.find({ solved: false }).exec();
       return res.render('explore/patient', { patient: foundPatient, user: userId });
     } catch(err) {
       return res.redirect('/');

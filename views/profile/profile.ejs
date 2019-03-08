@@ -1,0 +1,22 @@
+<% include ../partials/header  %>
+<div class="page be-donors-page">
+    <div class="page-navbar">
+      <div class="container">
+        <% include ../partials/nav %>
+      </div>
+    </div>
+    <div class="head">
+      <div class="container">
+        <h1>Donor Profile</h1>
+        <p>Know more about the Donor</p>
+      </div>
+    </div>
+    <section class="donors-area">
+      <div class="container">
+        <div class="be-donor">
+          <h4><%= donor.profile.firstName %> <%= donor.profile.middleName %> <%= donor.profile.lastName %></h4>
+        </div>
+      </div>
+    </section>
+  </div>
+<% include ../partials/footer %>

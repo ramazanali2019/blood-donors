@@ -89,4 +89,37 @@ module.exports = app => {
     await Patient.deleteOne({ _id: id });
     res.redirect('/patient');
   });
+
+  app.get('/patient/:id', async(req, res) => {
+    const { userId: user } = req.session;
+    const { id } = req.params;
+    const patient = await Patient.findById(id).populate('request').exec();
+    res.render('patient/patient', { user, patient });
+  });
+
+  app.get('/patient/:patientId/donate', isAuthenticate, async(req, res) => {
+    const { userId: user } = req.session;
+    const { patientId } = req.params;
+    const donor = await Donor.findOne({ userId: user });
+    if(donor) {
+      const patient = await Patient.findById(patientId);
+      patient.request.push(donor.id);
+      const updatedPatient = await patient.save();
+      res.redirect(`/patient/${patientId}`);
+    } else {
+      return res.redirect(`/patient/${patientId}`);
+    }
+  });
+
+  app.get('/patient/:patientId/accept', isAuthenticate, async(req, res) => {
+    const { userId: user } = req.session;
+    const { patientId } = req.params;
+    const patient = await Patient.updateOne({ _id: patientId }, { solved: true }).populate('request');
+    console.log(patient);
+    res.redirect(`/patient/${patientId}`);
+  });
+
+  app.get('/patient/:patientId/reject', (req, res) => {
+    res.send('Rejected');
+  });
 }

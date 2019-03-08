@@ -11,6 +11,10 @@ const DonorSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
+  donated: {
+    type: Number,
+    default: 0
+  },
   lastDonated: Number,
   smoke: {
     type: Boolean,

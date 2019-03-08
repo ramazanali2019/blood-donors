@@ -19,32 +19,34 @@
           </div>
           <% if(patient.length) { %>
             <% patient.forEach(onePatient => { %>
-              <div class="single-patient">
-                <div class="blood-group">
-                  <p><%= onePatient.profile.bloodGroup %></p>
+              <a href="/patient/<%= onePatient.id %>">
+                <div class="single-patient">
+                  <div class="blood-group">
+                    <p><%= onePatient.profile.bloodGroup %></p>
+                  </div>
+                  <h4>
+                    <p><%= onePatient.profile.firstName %> <%= onePatient.profile.middleName %> <%= onePatient.profile.lastName %></p>
+                  </h4>
+                  <p><%= onePatient.problem %></p>
+                  <ul>
+                    <li><%= onePatient.type %></li>
+                    <li><span>Age:</span> <%= onePatient.profile.age %></li>
+                    <li><span>Unit:</span> <%= onePatient.units %></li>
+                    <li><span>Required Within:</span> <%= onePatient.requiredDate.getDay() %>, 0<%= onePatient.requiredDate.getMonth() + 1 %>, <%= onePatient.requiredDate.getFullYear() %></li>
+                    <li><span>Contact:</span> <%= onePatient.contactInfo %></li>
+                    <li><%= onePatient.solved %></li>
+                  </ul>
+                  <ul>
+                    <li><%= onePatient.profile.location.place %></li>
+                    <li><%= onePatient.profile.location.state %></li>
+                    <li><%= onePatient.profile.location.country %></li>
+                  </ul>
+                  <div class="action-btn">
+                    <a href="/patient/edit/<%= onePatient.id %>">Edit</a>
+                    <a href="/patient/remove/<%= onePatient.id %>">Remove</a>
+                  </div>
                 </div>
-                <h4>
-                  <p><%= onePatient.profile.firstName %> <%= onePatient.profile.middleName %> <%= onePatient.profile.lastName %></p>
-                </h4>
-                <p><%= onePatient.problem %></p>
-                <ul>
-                  <li><%= onePatient.type %></li>
-                  <li><span>Age:</span> <%= onePatient.profile.age %></li>
-                  <li><span>Unit:</span> <%= onePatient.units %></li>
-                  <li><span>Required Within:</span> <%= onePatient.requiredDate.getDay() %>, 0<%= onePatient.requiredDate.getMonth() + 1 %>, <%= onePatient.requiredDate.getFullYear() %></li>
-                  <li><span>Contact:</span> <%= onePatient.contactInfo %></li>
-                  <li><%= onePatient.solved %></li>
-                </ul>
-                <ul>
-                  <li><%= onePatient.profile.location.place %></li>
-                  <li><%= onePatient.profile.location.state %></li>
-                  <li><%= onePatient.profile.location.country %></li>
-                </ul>
-                <div class="action-btn">
-                  <a href="/patient/edit/<%= onePatient.id %>">Edit</a>
-                  <a href="/patient/remove/<%= onePatient.id %>">Remove</a>
-                </div>
-              </div>
+              </a>
             <% }) %>
           <% } %>
         </div>

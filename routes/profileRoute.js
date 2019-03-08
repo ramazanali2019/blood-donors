@@ -77,4 +77,12 @@ module.exports = app => {
     });
     return res.redirect('/profile');
   });
+
+  app.get('/donor/:id', async(req, res) => {
+    const { userId: user } = req.session;
+    const { id } = req.params;
+    const donor = await Donor.findById(id);
+    console.log(donor);
+    res.render('profile/profile', { user, donor });
+  });
 }
