@@ -6,7 +6,7 @@ module.exports = app => {
     const { userId: user } = req;
     const donor = await Donor.findOne({userId: user});
     if(donor) {
-      const patient = await Patient.find({});
+      const patient = await Patient.find({'profile.bloodGroup': donor.profile.bloodGroup});
       res.render('profile/', { user, donor, patient });
     } else {
       res.render('profile/', { user, donor });
