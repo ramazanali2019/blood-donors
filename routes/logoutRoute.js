@@ -4,6 +4,7 @@ module.exports = app => {
     try {
       await req.session.destroy;
       res.clearCookie('pid');
+      req.flash('info', 'Logged Out!');
       return res.redirect('/login');
     } catch(e) {
       return res.redirect('/');

@@ -3,6 +3,7 @@ const express = require('express'),
       bodyParser = require('body-parser'),
       session = require('express-session'),
       mongoose = require('mongoose'),
+      flash = require('connect-flash'),
       { rootRoute, exploreRoute, searchRoute, aboutRoute, loginRoute, registerRoute, profileRoute, patientRoute, logoutRoute } = require('./routes');
 
 
@@ -19,6 +20,7 @@ app.use(session({
     maxAge: 1000 * 60 * 60 * 2
   }
 }));
+app.use(flash());
 mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true
 });

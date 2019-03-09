@@ -157,6 +157,7 @@ section {
 
 .btn {
   background: #da291c;
+  display: inline-block;
   color: #fff;
   text-decoration: none;
   font-size: 18px;
@@ -371,6 +372,11 @@ form input {
 
 .single-patient ul li {display: inline;text-transform: uppercase;font-size: 14px;color: rgba(0, 0, 0, 0.8);}
 
+.single-patient a {
+  text-decoration: none;
+  color: #000;
+}
+
 .single-patient ul li span {
   font-weight: 900;
 }
@@ -437,4 +443,43 @@ form input {
   text-transform: uppercase;
   color: #fff;
   background: #da291c;
+}
+
+.alert {
+  border: solid 1px #009688;
+  padding: 10px 15px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  background: #00BCD4;
+  color: #fff;
+}
+
+.request {
+  position: relative;
+  margin: 15px 0;
+}
+
+.request h4 {
+  font-size: 22px;
+}
+
+.request a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 900;
+}
+
+.request .action-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0;
+}
+
+.request:hover .action-btn {
+  opacity: 1;
+}
+
+.request .action-btn a {
+  margin: 0 5px;
 }

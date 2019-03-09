@@ -14,6 +14,9 @@
     <section class="donors-area">
       <div class="container">
         <div class="be-donor">
+          <% if(alert.length) { %>
+          <p class="alert alert-info"><%= alert %></p>
+          <% } %>
           <% if(user === patient.userId.toString()) { %>
           <div class="action-btn">
             <p class="alert">This is your patient</p>
@@ -21,6 +24,7 @@
               <div class="request">
                 <% patient.request.map(onePatient => { %>
                   <% if(!patient.solved) { %>
+                  <h4>Requests</h4>
                   <p><a href="/donor/<%= onePatient.id %>"><%= onePatient.profile.firstName %> <%= onePatient.profile.middleName %> <%= onePatient.profile.lastName %></a> want to donate you</p>
                   <div class="action-btn">
                     <a href="/patient/<%= patient.id %>/accept">Accept</a>
@@ -35,7 +39,7 @@
           <h4><%= patient.profile.firstName %> <%= patient.profile.middleName %> <%= patient.profile.lastName %></h4>
           <% if(user && user !== patient.userId.toString() && !patient.request.some(one => one.userId.toString() === user)) { %>
           <div class="action-btn">
-            <a href="/patient/<%= patient._id %>/donate">Donate</a>
+            <a class="btn" href="/patient/<%= patient._id %>/donate">Donate</a>
           </div>
           <% } %>
         </div>

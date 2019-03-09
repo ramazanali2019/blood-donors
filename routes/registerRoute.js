@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt'),
 module.exports = app => {
   app.get('/register', (req, res) => {
     const { userId: user } = req.session;
-    res.render('auth/register', { user });
+    res.render('auth/register', { user, alert: req.flash('info') });
   });
 
   app.post('/register', async(req, res) => {
@@ -13,8 +13,10 @@ module.exports = app => {
     const foundUser = await User.findOne({ username });
     if(!foundUser) {
       bcrypt.hash(body.password, 12, async(err, hash) => {
-        if(err) res.redirect('/register');
-        else {
+        if(err) {
+          req.flash('info', 'Something went wrong!')
+          return res.redirect('/register');
+        } else {
           body.password = hash;
           const newUser = await User.create(body);
           req.session.userId = newUser._id;
@@ -22,6 +24,7 @@ module.exports = app => {
         }
       });
     } else {
+      req.flash('info', 'User already Exist!')
       return res.redirect('/login');
     }
   });

@@ -22,6 +22,8 @@ const DonorSchema = new mongoose.Schema({
   }
 });
 
+DonorSchema.index({name: 'text', 'profile.location.**': 'text'});
+
 const Donor = mongoose.model('Donor', DonorSchema);
 
 module.exports = Donor;
