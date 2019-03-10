@@ -97,6 +97,7 @@ module.exports = app => {
     const { userId: user } = req.session;
     const { id } = req.params;
     const patient = await Patient.findById(id).populate('request').exec();
+    console.log(patient);
     res.render('patient/patient', { user, patient, alert: req.flash('info') });
   });
 
@@ -125,8 +126,11 @@ module.exports = app => {
     res.redirect(`/patient/${patientId}`);
   });
 
-  app.get('/patient/:patientId/reject', (req, res) => {
-    req.flash('info', 'Donate Request Rejected!');
-    res.send('Rejected');
+  app.get('/patient/:patientId/:donatorId/reject', async(req, res) => {
+    const { userId: user } = req.session;
+    const { patientId, donatorId } = req.params;
+    const patient = await Patient.updateOne({ _id: patientId }, { $pull: { request: donatorId } });
+    req.flash('info', 'Request Rejected!');
+    return res.redirect(`/patient/${patientId}`);
   });
 }

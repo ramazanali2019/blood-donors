@@ -14,7 +14,18 @@
     <section class="donors-area">
       <div class="container">
         <div class="be-donor">
-          <h4><%= donor.profile.firstName %> <%= donor.profile.middleName %> <%= donor.profile.lastName %></h4>
+          <% if(user === donor.userId.toString()) { %>
+            <p class="alert">This is your profile</p>
+          <% } %>
+          <div class="profile">
+            <p><span>Name:</span> <%= donor.profile.firstName %> <%= donor.profile.middleName ? donor.profile.middleName : '' %> <%= donor.profile.lastName %></p>
+            <p><span>Age:</span> <%= donor.profile.age %></p>
+            <p><span>Location:</span> <%= donor.profile.location.place %> <%= donor.profile.location.state ? donor.profile.location.state : '' %> <%= donor.profile.location.country %></p>
+            <p><span>Blood Group:</span> <%= donor.profile.bloodGroup %></p>
+            <p><span>Phone:</span> <%= donor.profile.phone %></p>
+            <p><%= donor.smoke ? `Smokes` : `Don't Smoke` %></p>
+            <p><%= donor.donatedOnce ? `Last Donated ${donor.lastDonated ? donor.lastDonated : 'few'} days ago!`: `Not Donated yet` %></p>
+          </div>
         </div>
       </div>
     </section>

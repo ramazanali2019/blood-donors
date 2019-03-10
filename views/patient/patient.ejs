@@ -28,7 +28,7 @@
                   <p><a href="/donor/<%= onePatient.id %>"><%= onePatient.profile.firstName %> <%= onePatient.profile.middleName %> <%= onePatient.profile.lastName %></a> want to donate you</p>
                   <div class="action-btn">
                     <a href="/patient/<%= patient.id %>/accept">Accept</a>
-                    <a href="/patient/<%= patient.id %>/reject">Reject</a>
+                    <a href="/patient/<%= patient.id %>/<%= onePatient.id %>/reject">Reject</a>
                   </div>
                   <% } %>
                 <% }) %>
@@ -36,7 +36,18 @@
             </div>
           </div>
           <% } %>
-          <h4><%= patient.profile.firstName %> <%= patient.profile.middleName %> <%= patient.profile.lastName %></h4>
+          <div class="profile">
+            <% if(patient.type === 'emergency') { %>
+                <p class="tag">emergency</p>
+            <% } %>
+            <p><span>Name:</span> <%= patient.profile.firstName %> <%= patient.profile.middleName %> <%= patient.profile.lastName %></p>
+            <p><span>Age:</span> <%= patient.profile.age %></p>
+            <p><span>Location:</span> <%= patient.profile.location.place %> <%= patient.profile.location.state ? patient.profile.location.state : '' %> <%= patient.profile.location.country %></p>
+            <p><span>Blood Group:</span> <%= patient.profile.bloodGroup %></p>
+            <p><span>Phone:</span> <%= patient.profile.phone %></p>
+            <p><span>Problem:</span> <%= patient.problem %></p>
+            <p><span>Required By:</span> <%= patient.requiredDate %></p>
+          </div>
           <% if(user && user !== patient.userId.toString() && !patient.request.some(one => one.userId.toString() === user)) { %>
           <div class="action-btn">
             <a class="btn" href="/patient/<%= patient._id %>/donate">Donate</a>
